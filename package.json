@@ -7,8 +7,12 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Vree, P. <pascal.vree@rogare.org>",
-  "license": "ISC",
+  "license": "GPL-3.0",
   "dependencies": {
     "fast-csv": "^4.3.6"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rogare-org/advent-of-code-2021.git"
   }
 }
