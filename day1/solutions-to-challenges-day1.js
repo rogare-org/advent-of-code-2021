@@ -22,21 +22,11 @@ const reduceToNrOfTimesMeasurementIncreases = (carry, currentItem, currentIndex,
   return carry;
 };
 
-const mapToMeasurement = (parsedMeasurement, measurements) =>
-  measurements.push(Number.parseInt(parsedMeasurement, 10));
-
-const path = require('path');
-require('../shared/csv-data-loader.js')(path.resolve(__dirname, 'data.csv'), mapToMeasurement).then(
-  (measurements) => {
-    console.log(
-      'day 1, challenge 1: ',
-      measurements.reduce(reduceToNrOfTimesMeasurementIncreases, 0),
-    );
-    console.log(
-      'day 1, challenge 2: ',
-      measurements
-        .reduce(reduceToMeasurementTuplesOfLength3, [])
-        .reduce(reduceToNrOfTimesMeasurementIncreases, 0),
-    );
-  },
-);
+module.exports = () => ({
+  solutionToChallenge1Day1: (measurements) =>
+    measurements.reduce(reduceToNrOfTimesMeasurementIncreases, 0),
+  solutionToChallenge2Day1: (measurements) =>
+    measurements
+      .reduce(reduceToMeasurementTuplesOfLength3, [])
+      .reduce(reduceToNrOfTimesMeasurementIncreases, 0),
+});

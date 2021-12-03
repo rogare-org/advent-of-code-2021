@@ -4,7 +4,8 @@
   "description": "straight forward nodejs solutions to the advent of code daily challenges, https://adventofcode.com/",
   "main": "day1/solution-to-challenges.js",
   "scripts": {
-    "test": "eslint \"./**/*.js\"",
+    "test": "jest",
+    "lint": "eslint \"./**/*.js\"",
     "format": "prettier --write \"./**/*.js\""
   },
   "author": "Vree, P. <pascal.vree@rogare.org>",
@@ -20,6 +21,7 @@
     "eslint": "^8.3.0",
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-prettier": "^4.0.0",
+    "jest": "^27.4.3",
     "prettier": "^2.5.0"
   }
 }
