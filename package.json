@@ -4,7 +4,8 @@
   "description": "straight forward nodejs solutions to the advent of code daily challenges, https://adventofcode.com/",
   "main": "day1/solution-to-challenges.js",
   "scripts": {
-    "test": "eslint \"./**/*.js\""
+    "test": "eslint \"./**/*.js\"",
+    "format": "prettier --write \"./**/*.js\""
   },
   "author": "Vree, P. <pascal.vree@rogare.org>",
   "license": "GPL-3.0",
@@ -16,6 +17,7 @@
     "url": "git+https://github.com/rogare-org/advent-of-code-2021.git"
   },
   "devDependencies": {
-    "eslint": "^8.3.0"
+    "eslint": "^8.3.0",
+    "prettier": "^2.5.0"
   }
 }
