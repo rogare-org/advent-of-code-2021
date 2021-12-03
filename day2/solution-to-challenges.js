@@ -34,10 +34,7 @@ require('../shared/csv-data-loader.js')(path.resolve(__dirname, 'data.csv'), map
     };
 
     const finalDivePosition = diveInstructions.reduce(applyDiveInstruction, startingPosition());
-    console.log(
-      'day 2, challenge 1:',
-      finalDivePosition.horizontalPosition * finalDivePosition.depth,
-    );
+    console.log('day 2, challenge 1:', finalDivePosition.horizontalPosition * finalDivePosition.depth);
     return diveInstructions;
   })
   .then((diveInstructions) => {
@@ -61,8 +58,5 @@ require('../shared/csv-data-loader.js')(path.resolve(__dirname, 'data.csv'), map
     };
 
     const finalDivePosition = diveInstructions.reduce(applyDiveInstruction, startingPosition());
-    console.log(
-      'day 2, challenge 2:',
-      finalDivePosition.horizontalPosition * finalDivePosition.depth,
-    );
+    console.log('day 2, challenge 2:', finalDivePosition.horizontalPosition * finalDivePosition.depth);
   });
