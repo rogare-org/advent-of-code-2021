@@ -1,5 +1,7 @@
 'use strict';
 
+// @see https://adventofcode.com/2021/day/1 for an in-depth description & explanation of the challenges for Day 1 of the Advent of Code
+
 const reduceToEveryTripleMeasurementsAsSummation = (carry, currentItem, currentIndex, source) => {
   // when reduce is called with an initialValue, the initial currentIndex will be 0 otherwise it will be 1
   if (currentIndex === 0 || (currentIndex === 1 && typeof carry !== 'number'))

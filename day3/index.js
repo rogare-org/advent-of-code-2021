@@ -1,5 +1,7 @@
 'use strict';
 
+// @see https://adventofcode.com/2021/day/3 for an in-depth description & explanation of the challenges for Day 3 of the Advent of Code
+
 const calculateFoo = (carry, currentItem, currentIndex, source) => {
 
   if (currentIndex === 1) {

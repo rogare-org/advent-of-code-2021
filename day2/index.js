@@ -1,5 +1,7 @@
 'use strict';
 
+// @see https://adventofcode.com/2021/day/2 for an in-depth description & explanation of the challenges for Day 2 of the Advent of Code
+
 const solutionToChallenge1 = (diveInstructions) => {
     const startingPosition = () => ({ horizontalPosition: 0, depth: 0 });
 
