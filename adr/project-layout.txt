@@ -1,0 +1,5 @@
+projectlayout of the solutions for the Advent of Code 2021
+- adr folder to document and store the decisions that big impact on the structure of the project, the code, et cetera
+- a central index.js that acts as a the main app, capable of executing the solutions for a specific day and providing the solution the personal data for the day (as provided by a commandline arg)
+- submodules for each day, where each submodule is named after the day and each submodule exposes at least 3 methods: run, solutionToChallenge1 and solutionToChallenge2
+- a shared resource folder with a resoureLoader submodule the (personal) data with each challenge for each day of the Advent of Code 2021 is stored

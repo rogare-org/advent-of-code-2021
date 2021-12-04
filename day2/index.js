@@ -1,20 +1,6 @@
 'use strict';
 
-/*
- * xpr $(cat data.csv | grep -i forward | awk '{ print $2" +" } END { print "0" }') => 1817
- * xpr $(cat data.csv | grep -i down | awk '{ print $2" +" } END { print "0" }')  => 2034
- * xpr $(cat data.csv | grep -i up | awk '{ print $2" +" } END { print "0" }') => 962
- */
-
-const mapToDiveInstruction = (parsedDiveInstruction, diveInstructions) =>
-  diveInstructions.push({
-    direction: parsedDiveInstruction[0],
-    distance: Number.parseInt(parsedDiveInstruction[1], 10),
-  });
-
-const path = require('path');
-require('../shared/csv-data-loader.js')(path.resolve(__dirname, 'data.csv'), mapToDiveInstruction)
-  .then((diveInstructions) => {
+const solutionToChallenge1 = (diveInstructions) => {
     const startingPosition = () => ({ horizontalPosition: 0, depth: 0 });
 
     const applyDiveInstruction = (divePosition, diveInstruction) => {
@@ -34,10 +20,10 @@ require('../shared/csv-data-loader.js')(path.resolve(__dirname, 'data.csv'), map
     };
 
     const finalDivePosition = diveInstructions.reduce(applyDiveInstruction, startingPosition());
-    console.log('day 2, challenge 1:', finalDivePosition.horizontalPosition * finalDivePosition.depth);
-    return diveInstructions;
-  })
-  .then((diveInstructions) => {
+    return finalDivePosition.horizontalPosition * finalDivePosition.depth;
+};
+
+const solutionToChallenge2 = (diveInstructions) => {
     const startingPosition = () => ({ horizontalPosition: 0, depth: 0, aim: 0 });
 
     const applyDiveInstruction = (divePosition, diveInstruction) => {
@@ -58,5 +44,28 @@ require('../shared/csv-data-loader.js')(path.resolve(__dirname, 'data.csv'), map
     };
 
     const finalDivePosition = diveInstructions.reduce(applyDiveInstruction, startingPosition());
-    console.log('day 2, challenge 2:', finalDivePosition.horizontalPosition * finalDivePosition.depth);
+    return finalDivePosition.horizontalPosition * finalDivePosition.depth;
+};
+
+const mapToDiveInstruction = (parsedDiveInstruction, diveInstructions) =>
+  diveInstructions.push({
+    direction: parsedDiveInstruction[0],
+    distance: Number.parseInt(parsedDiveInstruction[1], 10),
   });
+
+module.exports = () => ({
+
+  solutionToChallenge1,
+  solutionToChallenge2,
+
+  run: (resourceLoader, logger) => {
+    resourceLoader.load('day2', mapToDiveInstruction)
+      .then(diveInstructions => {
+
+        logger.log('day 2, challenge 1: ', solutionToChallenge1(diveInstructions));
+        logger.log('day 2, challenge 2: ', solutionToChallenge2(diveInstructions));
+
+      });
+  },
+
+});
